@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FluentMigrator;
+using FluentMigrator.SqlServer;
 
 namespace WorflowDemo1.Data.Migrations
 {
@@ -19,6 +20,16 @@ namespace WorflowDemo1.Data.Migrations
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK__Produtcs")
                 .WithColumn("Name").AsString(200).NotNullable()
                 .WithColumn("CategoryId").AsInt32().Nullable();
+
+            Insert.IntoTable("Categories")
+                .WithIdentityInsert()
+                .Row(new {Id = 1, Name = "Categoria A"})
+                .Row(new {Id = 2, Name = "Categoria B"});
+
+            Insert.IntoTable("Products")
+                .WithIdentityInsert()
+                .Row(new {Id = 1, Name = "Produto 1", CategoryId = 1})
+                .Row(new {Id = 2, Name = "Produto 2", CategoryId = 2});
 
         }
     }
