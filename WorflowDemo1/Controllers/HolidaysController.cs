@@ -10,7 +10,6 @@ using Dapper;
 using DateTimeExtensions.WorkingDays;
 using DateTimeExtensions.WorkingDays.RegionIdentifiers;
 using WorflowDemo1.Data;
-using WorflowDemo1.Models;
 using Holiday = WorflowDemo1.Data.Holiday;
 
 namespace WorflowDemo1.Controllers
